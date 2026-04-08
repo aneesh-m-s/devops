@@ -1,0 +1,72 @@
+🧪 EXP 11, 12, 13 (Maven + Jenkins)
+
+📄 Source:
+
+mvn archetype:generate
+cd devops-labs
+mvn clean test
+
+git init
+git add .
+git commit -m "DevOps Labs"
+git remote add origin <repo-url>
+git push -u origin main
+
+👉 Jenkins (Windows fix)
+
+mvn clean compile
+mvn test
+🧪 EXP 14 (JUnit + JaCoCo)
+
+📄 Source:
+
+mvn archetype:generate
+mvn clean test
+mvn jacoco:report
+🧪 EXP 15 (Docker Basics)
+
+📄 Source:
+
+docker --version
+docker run hello-world
+docker ps
+docker ps -a
+
+docker pull nginx
+docker run -d -p 8080:80 nginx
+
+docker stop <container_id>
+docker rm <container_id>
+🧪 EXP 16 (Dockerfile)
+
+📄 Source:
+
+mkdir docker-app
+cd docker-app
+
+docker build -t my-python-app .
+docker images
+docker run -p 5020:5020 my-python-app
+🧪 EXP 17 (Port + Volume)
+
+📄 Source:
+
+docker run -d nginx
+docker run -d -p 8082:80 nginx
+
+docker volume create myvolume
+docker volume ls
+
+docker run -it -v myvolume:/data ubuntu bash
+docker run -it -v myvolume:/data ubuntu bash
+
+docker run -d -p 8083:80 -v myvolume:/usr/share/nginx/html nginx
+
+docker ps
+docker volume inspect myvolume
+🧪 EXP 19 (Docker + Jenkins)
+
+📄 Source:
+
+docker build -t my-app .
+docker run -d my-app
